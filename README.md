@@ -11,21 +11,11 @@ This project demonstrates an event-driven data ingestion pipeline using **PySpar
 - **Databricks**
 - **Delta Lake**
 - **Databricks Workflows**
-- **GitHub**
+
 
 ## Architecture Diagram
 
------------------+     +-----------------------+     +-------------------+     +-----------------+     +-----------------------+     +-------------------+
-| Source Folder   | --> | PySpark Stage Load    | --> | Stage Delta Table | --> | Archive Folder  | --> | PySpark Target Load   | --> | Target Delta Table |
-| (landingzone/)  |     | (stage_data_load)     |     | (orders_stage)    |     | (landingzone/)  |     | (target_data_load)    |     | (target_zn_new)    |
-+-----------------+     +-----------------------+     +-------------------+     +-----------------+     +-----------------------+     +-------------------+
-      ^                                                                                                                                           |
-      |                                                                                                                                           v
-+-----------------+                                                                                                                          +---------+
-| File Arrival   |                                                                                                                          | Databricks |
-|    Trigger     |                                                                                                                          | Workflows  |
-| (landingzone/) |                                                                                                                          |  (new_etl) |
-+-----------------+                                                                                                                          +---------+
+                                                                                                                   +---------+
 
 ---
 
@@ -56,15 +46,16 @@ This project demonstrates an event-driven data ingestion pipeline using **PySpar
 - Set up **Azure Data Lake Storage (ADLS)**.
 - Create **containers** and folders for **source** and **archive** data.
 - Configure **external location** and catalog.
-
+![image alt]([image_url](https://github.com/81611991/Project_OrdersData_Event_Driven_Pipeline/blob/8de814005a6b53f7e6785dfff74bc72d97aaec3e/snaps/create-container.PNG))
 ### **Step 2: Data Ingestion**
 
 - Read **CSV files** from the source directory in ADLS using PySpark.
 - Write the data into a **Delta table (orders_stage)** in the landing zone.
 
 ```python
-source_dir = 'abfss://landingzone@devanshlandingzn.dfs.core.windows.net/source/'
-stage_table = 'incremental_load.default.orders_stage'
+source_dir = "abfss://landingzone@devanshlandingzn.dfs.core.windows.net/source/"
+target_dir = "abfss://landingzone@devanshlandingzn.dfs.core.windows.net/archive/"
+stage_table = "incremental_load.default.orders_stage"
 
 df = spark.read.csv(source_dir, header=True, inferSchema=True)
 df.write.format("delta").mode("overwrite").saveAsTable(stage_table)
