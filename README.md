@@ -15,7 +15,17 @@ This project demonstrates an event-driven data ingestion pipeline using **PySpar
 
 ## Architecture Diagram
 
-*(Add your architecture diagram here)*
+-----------------+     +-----------------------+     +-------------------+     +-----------------+     +-----------------------+     +-------------------+
+| Source Folder   | --> | PySpark Stage Load    | --> | Stage Delta Table | --> | Archive Folder  | --> | PySpark Target Load   | --> | Target Delta Table |
+| (landingzone/)  |     | (stage_data_load)     |     | (orders_stage)    |     | (landingzone/)  |     | (target_data_load)    |     | (target_zn_new)    |
++-----------------+     +-----------------------+     +-------------------+     +-----------------+     +-----------------------+     +-------------------+
+      ^                                                                                                                                           |
+      |                                                                                                                                           v
++-----------------+                                                                                                                          +---------+
+| File Arrival   |                                                                                                                          | Databricks |
+|    Trigger     |                                                                                                                          | Workflows  |
+| (landingzone/) |                                                                                                                          |  (new_etl) |
++-----------------+                                                                                                                          +---------+
 
 ---
 
