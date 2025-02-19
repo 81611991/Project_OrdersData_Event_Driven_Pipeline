@@ -46,7 +46,7 @@ This project demonstrates an event-driven data ingestion pipeline using **PySpar
 - Set up **Azure Data Lake Storage (ADLS)**.
 - Create **containers** and folders for **source** and **archive** data.
 - Configure **external location** and catalog.
-![image alt]([image_url](https://github.com/81611991/Project_OrdersData_Event_Driven_Pipeline/blob/8de814005a6b53f7e6785dfff74bc72d97aaec3e/snaps/create-container.PNG))
+![Alt text](snaps/create-container.PNG)
 ### **Step 2: Data Ingestion**
 
 - Read **CSV files** from the source directory in ADLS using PySpark.
