@@ -47,6 +47,13 @@ This project demonstrates an event-driven data ingestion pipeline using **PySpar
 - Create **containers** and folders for **source** and **archive** data.
 - Configure **external location** and catalog.
 ![Alt text](snaps/create-container.PNG)
+
+![Alt text](snaps/create-container-location.PNG)
+
+![Alt text](snaps/create-container.PNG)
+
+![Alt text](snaps/create-catalog.PNG)
+
 ### **Step 2: Data Ingestion**
 
 - Read **CSV files** from the source directory in ADLS using PySpark.
