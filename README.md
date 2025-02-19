@@ -162,4 +162,4 @@ else:
 
 ## **Contact**
 
-For queries or contributions, contact [Your Name] at [Your Email].
+For queries or contributions, contact Yogesh Chauhan .
