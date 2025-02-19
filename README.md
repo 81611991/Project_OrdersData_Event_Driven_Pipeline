@@ -50,8 +50,6 @@ This project demonstrates an event-driven data ingestion pipeline using **PySpar
 
 ![Alt text](snaps/create-container-location.PNG)
 
-![Alt text](snaps/create-container.PNG)
-
 ![Alt text](snaps/create-catalog.PNG)
 
 ### **Step 2: Data Ingestion**
@@ -124,7 +122,9 @@ else:
   "trigger": { "file_arrival": { "url": "abfss://landingzone@devanshlandingzn.dfs.core.windows.net/source/" } }
 }
 ```
+![Alt text](snaps/create-workflow.PNG)
 
+![Alt text](snaps/create-trigger.PNG)
 ---
 
 ## **How to Run the Project**
