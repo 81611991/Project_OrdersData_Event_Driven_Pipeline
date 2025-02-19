@@ -138,11 +138,6 @@ else:
 ├── data/                 # Sample datasets
 │   ├── order_tracking_2023_01_01.csv
 │
-├── scripts/              # Python scripts (if any)
-│
-├── docs/                 # Documentation & workflow files
-│   ├── project-explanation.txt
-│   ├── workflow.json
 │
 ├── README.md             # Main documentation
 ```
